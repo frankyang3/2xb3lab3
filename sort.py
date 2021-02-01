@@ -82,9 +82,9 @@ def quad_pivot_quicksort_copy(L):
                 copy = L
                 copy.sort()
                 return copy
-        x = [L[0], L[1], L[2],L[3]]
+        x = [L[0], L[1], L[2], L[3]]
         x.sort()
-        pivot1, pivot2, pivot3, pivot4 = x[0], x[1], x[2], L[3]
+        pivot1, pivot2, pivot3, pivot4 = x[0], x[1], x[2], x[3]
         left1, left2, right1, right2, right3 = [], [], [], [], []
         for num in L[4:]:
                 if num < pivot1:
