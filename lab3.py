@@ -91,7 +91,6 @@ def tests(trials):
     print(max(std), max(dual), max(tri), max(quad), max(inplace))
 
 # Yi Luo begin
-
 def worst_case_performance():
     std, dual, tri, quad = [], [], [], []
     factor = []
@@ -124,7 +123,40 @@ def worst_case_performance():
         quad.append(stop - start)
     df = pd.DataFrame({"factor": factor, "std": std, "dual": dual, "tri": tri, "quad": quad})
     df.to_csv("worst_case.csv", index=False)
-
 #worst_case_performance()
-
 # Yi Luo end
+
+# Tests for small lists to talk about in report
+def small_lists_tests(trials):
+    std, insertion, selection, final  = [], [], [], []
+    
+    for i in range(trials):
+        x = create_random_list(10)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        insertion_sort(arr, 0, len(arr) - 1)
+        stop = timeit.default_timer()
+        insertion.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        my_quicksort(arr)
+        stop = timeit.default_timer()
+        std.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        selection_sort(arr)
+        stop = timeit.default_timer()
+        selection.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        final_sort(arr, 0, len(arr) - 1)
+        stop = timeit.default_timer()
+        final.append(stop - start)
+
+    averages = {"std": avg(std), "insertion": avg(insertion), "selection": avg(selection), "final": avg(final)}
+    print("AVERAGES:")
+    print(averages)
