@@ -80,7 +80,7 @@ def tests(trials):
         stop = timeit.default_timer()
         inplace.append(stop - start)
 
-    averages = {std: avg(std), dual: avg(dual), tri: avg(tri), quad: avg(quad), inplace: avg(inplace)}
+    #averages = {"std": avg(std), "dual": avg(dual), "tri": avg(tri), "quad": avg(quad), "inplace": avg(inplace)}
     print("AVERAGES: std, dual, tri, quad, inplace")
     print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
 
