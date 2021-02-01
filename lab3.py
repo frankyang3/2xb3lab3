@@ -89,3 +89,40 @@ def tests(trials):
 
     print("MAXIMUM: std, dual, tri, quad, inplace")
     print(max(std), max(dual), max(tri), max(quad), max(inplace))
+
+    
+    
+# Tests for small lists to talk about in report
+def small_lists_tests(trials):
+    std, insertion, selection, final  = [], [], [], []
+    
+    for i in range(trials):
+        x = create_random_list(10)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        insertion_sort(arr, 0, len(arr) - 1)
+        stop = timeit.default_timer()
+        insertion.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        my_quicksort(arr)
+        stop = timeit.default_timer()
+        std.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        selection_sort(arr)
+        stop = timeit.default_timer()
+        selection.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        final_sort(arr, 0, len(arr) - 1)
+        stop = timeit.default_timer()
+        final.append(stop - start)
+
+    averages = {"std": avg(std), "insertion": avg(insertion), "selection": avg(selection), "final": avg(final)}
+    print("AVERAGES:")
+    print(averages)
