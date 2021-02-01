@@ -63,6 +63,12 @@ print(arr)
 print("RUNTIME: " + str(stop-start) )
 
 start = timeit.default_timer()
+quad_pivot_quicksort(arr)
+stop = timeit.default_timer()
+print(arr)
+print("RUNTIME: " + str(stop-start) )
+
+start = timeit.default_timer()
 quicksort_inplace(arr, 0, len(arr)-1)
 stop = timeit.default_timer()
 print(arr)
