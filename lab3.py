@@ -55,4 +55,9 @@ stop = timeit.default_timer()
 print(arr)
 print("RUNTIME: " + str(stop-start) )
 
+start = timeit.default_timer()
+quad_quicksort(arr)
+stop = timeit.default_timer()
+print(arr)
+print("RUNTIME: " + str(stop-start) )
 
