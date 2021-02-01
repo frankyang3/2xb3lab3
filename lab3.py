@@ -78,14 +78,14 @@ def tests(trials):
        start = timeit.default_timer()
        quicksort_inplace(arr, 0, len(arr)-1)
        stop = timeit.default_timer()
-print(arr)
-print("RUNTIME: " + str(stop-start) )
-    
-print("AVERAGES: std, dual, tri, quad, inplace")
-print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
-    
-print("MINIMUM: std, dual, tri, quad, inplace")
-print(min(std), min(dual), min(tri), min(quad), min(inplace))
-    
-print("MAXIMUM: std, dual, tri, quad, inplace")
-print(max(std), max(dual), max(tri), max(quad), max(inplace))
+       inplace.append(stop - start)
+
+
+    print("AVERAGES: std, dual, tri, quad, inplace")
+    print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
+
+    print("MINIMUM: std, dual, tri, quad, inplace")
+    print(min(std), min(dual), min(tri), min(quad), min(inplace))
+
+    print("MAXIMUM: std, dual, tri, quad, inplace")
+    print(max(std), max(dual), max(tri), max(quad), max(inplace))
