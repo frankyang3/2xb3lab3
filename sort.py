@@ -18,30 +18,27 @@ def partition_inplace(L, low, hi):
         L[small+1], L[hi] = L[hi], L[small+1]
         return (small+1)
 
-def dual_pivot_quicksort(L):
-    copy = dual_pivot_quicksort_copy(L)
+def tri_pivot_quicksort(L):
+    copy = tri_pivot_quicksort_copy(L)
     for i in range(len(L)):
         L[i] = copy[i]
 
-def dual_pivot_quicksort_copy(L):
-        if len(L) < 2:
-                return L
-        if L[0] <= L[1]:
-                pivot1,pivot2 = L[0], L[1]
-        else:
-                pivot1,pivot2 = L[1], L[0]
-        if len(L) == 2:
-                return [pivot1] + [pivot2]
-        left, middle, right = [], [], []
+def tri_pivot_quicksort_copy(L):
+        if len(L) < 4:
+                copy = L
+                copy.sort()
+                return copy
+        x = [L[0], L[1], L[2]]
+        x.sort()
+        pivot1, pivot2, pivot3 = x[0], x[1], x[2]
+        left1, left2, right1, right2 = [], [], [], []
         for num in L[2:]:
                 if num < pivot1:
-                        left.append(num)
+                        left1.append(num)
                 elif pivot1 <= num <= pivot2:
-                        middle.append(num)
+                        left2.append(num)
+                elif pivot2 < num < pivot3:
+                        right1.append(num)
                 else:
-                        right.append(num)
-        return dual_pivot_quicksort_copy(left) + [pivot1] + dual_pivot_quicksort_copy(middle) + dual_pivot_quicksort_copy(right)
-
-#arr = create_random_list(100)
-#dual_pivot_quicksort(arr)
-#print(arr)
+                        right2.append(num)
+        return tri_pivot_quicksort_copy(left1) + [pivot1] + tri_pivot_quicksort_copy(left2) + [pivot2] + tri_pivot_quicksort_copy(right1) + [pivot3] + tri_pivot_quicksort_copy(right2)
