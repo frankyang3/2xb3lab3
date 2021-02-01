@@ -79,8 +79,12 @@ def tests(trials):
         quicksort_inplace(arr, 0, len(arr)-1)
         stop = timeit.default_timer()
         inplace.append(stop - start)
+<<<<<<< HEAD
 
+=======
+>>>>>>> a2febef59a579b261f7dbcdc9e367c7428bbcb4e
 
+    averages = {std: avg(std), dual: avg(dual), 
     print("AVERAGES: std, dual, tri, quad, inplace")
     print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
 
