@@ -41,40 +41,50 @@ def create_near_sorted_list(n, factor):
     return L
 
 ###### TESTING ######
+def avg(L):
+    return sum(L) / len(L)
 
-x = create_random_list(100)
+def tests(trials):
+    std, dual, tri, quad, inplace = [], [], [], [], []
+    
+    for i in range(trials):
+        x = create_random_list(100)
 
-arr = x.copy()
-start = timeit.default_timer()
-my_quicksort(arr)
-stop = timeit.default_timer()
-print(arr)
-print("RUNTIME: " + str(stop-start) )
+        arr = x.copy()
+        start = timeit.default_timer()
+        my_quicksort(arr)
+        stop = timeit.default_timer()
+        std.append(stop - start)
 
-arr = x.copy()
-start = timeit.default_timer()
-dual_pivot_quicksort(arr)
-stop = timeit.default_timer()
-print(arr)
-print("RUNTIME: " + str(stop-start) )
+        arr = x.copy()
+        start = timeit.default_timer()
+        dual_pivot_quicksort(arr)
+        stop = timeit.default_timer()
+        dual.append(stop - start)
 
-arr = x.copy()
-start = timeit.default_timer()
-tri_pivot_quicksort(arr)
-stop = timeit.default_timer()
-print(arr)
-print("RUNTIME: " + str(stop-start) )
+        arr = x.copy()
+        start = timeit.default_timer()
+        tri_pivot_quicksort(arr)
+        stop = timeit.default_timer()
+        tri.append(stop - start)
 
-arr = x.copy()
-start = timeit.default_timer()
-quad_pivot_quicksort(arr)
-stop = timeit.default_timer()
-print(arr)
-print("RUNTIME: " + str(stop-start) )
+        arr = x.copy()
+        start = timeit.default_timer()
+        quad_pivot_quicksort(arr)
+        stop = timeit.default_timer()
+        quad.append(stop - start)
 
-arr = x.copy()
-start = timeit.default_timer()
-quicksort_inplace(arr, 0, len(arr)-1)
-stop = timeit.default_timer()
-print(arr)
-print("RUNTIME: " + str(stop-start) )
+        arr = x.copy()
+        start = timeit.default_timer()
+        quicksort_inplace(arr, 0, len(arr)-1)
+        stop = timeit.default_timer()
+        inplace.append(stop - start)
+    
+    print("AVERAGES: std, dual, tri, quad, inplace")
+    print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
+    
+    print("MINIMUM: std, dual, tri, quad, inplace")
+    print(min(std), min(dual), min(tri), min(quad), min(inplace))
+    
+    print("MAXIMUM: std, dual, tri, quad, inplace")
+    print(max(std), max(dual), max(tri), max(quad), max(inplace))
