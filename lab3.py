@@ -57,11 +57,7 @@ print(arr)
 print("RUNTIME: " + str(stop-start) )
 
 start = timeit.default_timer()
-<<<<<<< HEAD
-quad_quicksort(arr)
-=======
 tri_pivot_quicksort(arr)
->>>>>>> 6dbca0bd1cec027b8791e702643be7a225dd320c
 stop = timeit.default_timer()
 print(arr)
 print("RUNTIME: " + str(stop-start) )
