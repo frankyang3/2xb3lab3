@@ -74,11 +74,11 @@ def tests(trials):
         stop = timeit.default_timer()
         quad.append(stop - start)
 
-       arr = x.copy()
-       start = timeit.default_timer()
-       quicksort_inplace(arr, 0, len(arr)-1)
-       stop = timeit.default_timer()
-       inplace.append(stop - start)
+        arr = x.copy()
+        start = timeit.default_timer()
+        quicksort_inplace(arr, 0, len(arr)-1)
+        stop = timeit.default_timer()
+        inplace.append(stop - start)
 
 
     print("AVERAGES: std, dual, tri, quad, inplace")
