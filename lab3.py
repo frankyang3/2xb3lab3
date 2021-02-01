@@ -42,32 +42,37 @@ def create_near_sorted_list(n, factor):
 
 ###### TESTING ######
 
-arr = create_random_list(100)
+x = create_random_list(100)
 
+arr = x.copy()
 start = timeit.default_timer()
 my_quicksort(arr)
 stop = timeit.default_timer()
 print(arr)
 print("RUNTIME: " + str(stop-start) )
 
+arr = x.copy()
 start = timeit.default_timer()
 dual_pivot_quicksort(arr)
 stop = timeit.default_timer()
 print(arr)
 print("RUNTIME: " + str(stop-start) )
 
+arr = x.copy()
 start = timeit.default_timer()
 tri_pivot_quicksort(arr)
 stop = timeit.default_timer()
 print(arr)
 print("RUNTIME: " + str(stop-start) )
 
+arr = x.copy()
 start = timeit.default_timer()
 quad_pivot_quicksort(arr)
 stop = timeit.default_timer()
 print(arr)
 print("RUNTIME: " + str(stop-start) )
 
+arr = x.copy()
 start = timeit.default_timer()
 quicksort_inplace(arr, 0, len(arr)-1)
 stop = timeit.default_timer()
