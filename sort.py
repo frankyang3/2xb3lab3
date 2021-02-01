@@ -18,6 +18,35 @@ def partition_inplace(L, low, hi):
         L[small+1], L[hi] = L[hi], L[small+1]
         return (small+1)
 
+def dual_pivot_quicksort(L):
+    copy = dual_pivot_quicksort_copy(L)
+    for i in range(len(L)):
+        L[i] = copy[i]
+
+def dual_pivot_quicksort_copy(L):
+    if len(L) < 2:
+        return L
+
+    lp = min(L[0], L[1])
+    rp = max(L[0], L[1])
+
+    if len(L) == 2:
+        return [lp] + [rp]
+
+    # x < lp, lp <= x <= rp, rp < x
+    left, mid, right = [], [], []
+
+    for num in L[2:]:
+        if num < lp:
+            left.append(num)
+        elif num >= lp and num <= rp:
+            mid.append(num)
+        else:
+            right.append(num)
+
+    return dual_pivot_quicksort_copy(left) + [lp] + dual_pivot_quicksort_copy(mid) + [rp] + dual_pivot_quicksort_copy(right)
+    
+    
 def tri_pivot_quicksort(L):
     copy = tri_pivot_quicksort_copy(L)
     for i in range(len(L)):
