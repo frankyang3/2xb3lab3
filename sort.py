@@ -24,15 +24,14 @@ def dual_pivot_quicksort(L):
         L[i] = copy[i]
 
 def dual_pivot_quicksort_copy(L):
-    if len(L) < 2:
-        return L
-
-    lp = min(L[0], L[1])
-    rp = max(L[0], L[1])
-
-    if len(L) == 2:
-        return [lp] + [rp]
-
+    if len(L) < 3:
+        copy = L
+        copy.sort()
+        return copy
+    x = [L[0], L[1]]
+    x.sort()
+    lp, rp = x[0], x[1]
+    
     # x < lp, lp <= x <= rp, rp < x
     left, mid, right = [], [], []
 
