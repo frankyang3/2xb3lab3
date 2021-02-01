@@ -80,7 +80,7 @@ def tests(trials):
         stop = timeit.default_timer()
         inplace.append(stop - start)
 
-    #averages = {"std": avg(std), "dual": avg(dual), "tri": avg(tri), "quad": avg(quad), "inplace": avg(inplace)}
+    averages = {"std": avg(std), "dual": avg(dual), "tri": avg(tri), "quad": avg(quad), "inplace": avg(inplace)}
     print("AVERAGES: std, dual, tri, quad, inplace")
     print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
 
@@ -89,3 +89,42 @@ def tests(trials):
 
     print("MAXIMUM: std, dual, tri, quad, inplace")
     print(max(std), max(dual), max(tri), max(quad), max(inplace))
+
+# Yi Luo begin
+
+def worst_case_performance():
+    std, dual, tri, quad = [], [], [], []
+    factor = []
+    for i in range(100):
+        factor.append(i/100)
+        x = create_near_sorted_list(100, i/100)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        my_quicksort(arr)
+        stop = timeit.default_timer()
+        std.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        dual_pivot_quicksort(arr)
+        stop = timeit.default_timer()
+        dual.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        tri_pivot_quicksort(arr)
+        stop = timeit.default_timer()
+        tri.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        quad_pivot_quicksort(arr)
+        stop = timeit.default_timer()
+        quad.append(stop - start)
+    df = pd.DataFrame({"factor": factor, "std": std, "dual": dual, "tri": tri, "quad": quad})
+    df.to_csv("worst_case.csv", index=False)
+
+#worst_case_performance()
+
+# Yi Luo end
