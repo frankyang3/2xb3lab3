@@ -74,13 +74,13 @@ def tests(trials):
         stop = timeit.default_timer()
         quad.append(stop - start)
 
-       arr = x.copy()
-       start = timeit.default_timer()
-       quicksort_inplace(arr, 0, len(arr)-1)
-       stop = timeit.default_timer()
-       inplace.append(stop - start)
+        arr = x.copy()
+        start = timeit.default_timer()
+        quicksort_inplace(arr, 0, len(arr)-1)
+        stop = timeit.default_timer()
+        inplace.append(stop - start)
 
-
+    averages = {std: avg(std), dual: avg(dual), 
     print("AVERAGES: std, dual, tri, quad, inplace")
     print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
 
