@@ -91,39 +91,129 @@ def tests(trials):
     print(max(std), max(dual), max(tri), max(quad), max(inplace))
 
 # Yi Luo begin
-def worst_case_performance():
-    std, dual, tri, quad = [], [], [], []
+def create_sorted_list(n):
+    res = []
+    for i in range(n):
+        res.append(i)
+    return res
+
+def average_vs_worst_case_performance():
+    std_average, std_worst = [], []
+    n = []
+    for i in range(500):
+        n.append(i)
+        x = create_random_list(i)
+        y = create_sorted_list(i)
+
+        start = timeit.default_timer()
+        my_quicksort(x)
+        stop = timeit.default_timer()
+        std_average.append(stop - start)
+
+        start = timeit.default_timer()
+        my_quicksort(y)
+        stop = timeit.default_timer()
+        std_worst.append(stop - start)
+
+    df = pd.DataFrame({"n": n, "std_average": std_average, "std_worst": std_worst})
+    df.to_csv("average_vs_worst_case_performance.csv", index=False)
+
+def bubblesort(arr): 
+    n = len(arr) 
+    for i in range(n-1):  
+        for j in range(0, n-i-1): 
+            if arr[j] > arr[j+1] : 
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+
+def bubblesort_vs_quicksort_vs_factor():
+    bubblesort_runtime, quicksort_runtime = [], []
     factor = []
     for i in range(100):
         factor.append(i/100)
-        x = create_near_sorted_list(100, i/100)
+        x = create_near_sorted_list(996, i/100)
 
         arr = x.copy()
         start = timeit.default_timer()
         my_quicksort(arr)
         stop = timeit.default_timer()
-        std.append(stop - start)
+        quicksort_runtime.append(stop - start)
 
         arr = x.copy()
         start = timeit.default_timer()
-        dual_pivot_quicksort(arr)
+        y = bubblesort(arr)
         stop = timeit.default_timer()
-        dual.append(stop - start)
+        bubblesort_runtime.append(stop - start)
+
+    df = pd.DataFrame({"factor": factor, "bubblesort_runtime": bubblesort_runtime, "quicksort_runtime": quicksort_runtime})
+    df.to_csv("bubblesort_vs_quicksort_vs_factor.csv", index=False)
+
+def selectionSort(l):
+    for fillslot in range(len(l)-1,0,-1):
+        positionOfMax=0
+        for location in range(1,fillslot+1):
+            if l[location]>l[positionOfMax]:
+                positionOfMax = location
+        temp = l[fillslot]
+        l[fillslot] = l[positionOfMax]
+        l[positionOfMax] = temp
+
+def selectionSort_vs_quicksort_vs_factor():
+    selectionSort_runtime, quicksort_runtime = [], []
+    factor = []
+    for i in range(100):
+        factor.append(i/100)
+        x = create_near_sorted_list(996, i/100)
 
         arr = x.copy()
         start = timeit.default_timer()
-        tri_pivot_quicksort(arr)
+        my_quicksort(arr)
         stop = timeit.default_timer()
-        tri.append(stop - start)
+        quicksort_runtime.append(stop - start)
 
         arr = x.copy()
         start = timeit.default_timer()
-        quad_pivot_quicksort(arr)
+        y = selectionSort(arr)
         stop = timeit.default_timer()
-        quad.append(stop - start)
-    df = pd.DataFrame({"factor": factor, "std": std, "dual": dual, "tri": tri, "quad": quad})
-    df.to_csv("worst_case.csv", index=False)
-#worst_case_performance()
+        selectionSort_runtime.append(stop - start)
+
+    df = pd.DataFrame({"factor": factor, "selectionSort_runtime": selectionSort_runtime, "quicksort_runtime": quicksort_runtime})
+    df.to_csv("selectionSort_vs_quicksort_vs_factor.csv", index=False)
+
+def insertionSort(l):
+    for index in range(1,len(l)):
+        currentvalue = l[index]
+        position = index
+        while position>0 and l[position-1]>currentvalue:
+            l[position]=l[position-1]
+            position = position-1
+        l[position]=currentvalue
+
+def insertionSort_vs_quicksort_vs_factor():
+    insertionSort_runtime, quicksort_runtime = [], []
+    factor = []
+    for i in range(100):
+        factor.append(i/100)
+        x = create_near_sorted_list(996, i/100)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        my_quicksort(arr)
+        stop = timeit.default_timer()
+        quicksort_runtime.append(stop - start)
+
+        arr = x.copy()
+        start = timeit.default_timer()
+        y = insertionSort(arr)
+        stop = timeit.default_timer()
+        insertionSort_runtime.append(stop - start)
+
+    df = pd.DataFrame({"factor": factor, "insertionSort_runtime": insertionSort_runtime, "quicksort_runtime": quicksort_runtime})
+    df.to_csv("insertionSort_vs_quicksort_vs_factor.csv", index=False)
+
+#average_vs_worst_case_performance()
+#bubblesort_vs_quicksort_vs_factor()
+#selectionSort_vs_quicksort_vs_factor()
+#insertionSort_vs_quicksort_vs_factor()
 # Yi Luo end
 
 # Tests for small lists to talk about in report
