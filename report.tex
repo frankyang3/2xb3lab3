@@ -89,5 +89,27 @@ length 996 instead of 1000 as specified since it would otherwise generate \verb|
 Insertion sort out-performs when factor approximately is smaller than 0.05.
 
 \section*{Small lists}
+For small lists (small values of $n$), elementary sorting algorithms’ time complexity is measured. Selection and insertion sorts’ running time were tested. The results were (also seen in the graph but these are the averages for values of $N < 50$) \verb|{'std': 9.19201014767168e-06, 'insertion': 5.821419908897951e-06, 'selection': 9.893930109683424e-06, 'final': 6.013410202285741e-06}| (std is the \verb|my_quicksort|) where the value of the dictionary is the average over 100 trials of running the function in seconds. It is clear that the standard quicksort is very slow compared to insertion and our final sort for small values of $n$ even though they have $O(n^2)$ time complexity compared to quicksort’s time complexity of $O(nlog(n))$. The difference is approximately $4e-6$ between \verb|std| and \verb|insertion|. This is likely because for small values of $n$, quicksort requires more memory from its recursive calls and insertion sort requires few swaps and comparison for small arrays. Furthermore, $O(n)$ is a measure of its running time for large values of $n$ which ignores all constant factors. Only for large values of $n$ do the constant factors such as $+c$ are ignored because the growth of the function, $O(n)$, dominates all other factors. Selection sort is quite slow at $9.89e-6$. This is expected; its running time is always $O(n^2)$. This is because no matter the ordering of the array, selection sort will traverse through the array approximately $\frac{N^2}{2}$ times to find the minimum $N$ times. 
+
+The graph also shows that for small values of $N < 200$, insertion sort has smaller runtimes than the other algorithms. However, this changes as $N$ becomes much larger and its runtimes become the expected value from its big-O values. To conclude our most notable observations, insertion sort is faster than quicksort for small values of $n$ and can be used to improve our quicksort.
+
+\includegraphics[width=0.8\textwidth]{elementarySortsComparisons}
+
+Our implementation of an improved quicksort is a hybrid of insertion sort and quicksort. From our observations, insertion sort has a lower running time than quicksort for small values of $n$. Our main goals were to improve the standard quicksort given in \verb|my_quicksort()| both in terms of time and space complexity. Using this to our advantage, we can switch between quicksort and insertion sort to use both of them during their ideal conditions. It will still mainly use quicksort because for large values of $n$, it is still much faster than insertion sort ($O(nlog(n))$ < $O(n^2)$ for large $n$). However, for small values of $n$ (we arbitrarily chose 10 as the small value), the sorting algorithm will switch to insertion sort. When the array has reached the condition to start the insertion sort, it will have already been partly sorted. Insertion sort is very quick for partly sorted arrays because it will need to do less comparisons, and therefore, less swaps. Its running time in this case (small array and partly sorted) will be close to $O(kn)$ for some $1 \geq k$. Furthermore, the quicksort algorithm does not follow the style of \verb|my_quicksort| because it requires more space when it physically creates new subarrays to recursively sort them; it has a smaller space complexity. Since the sorting algorithm now stops its recursion when its subarray is approximately 10,  its recursion depth is significantly lower. 
+
+\includegraphics[width=0.8\textwidth]{quicksortFinalSort}
+
+The worst case of this algorithm is a reverse sorted list. It is the worst case for both quicksort and insertion sort (which our algorithm uses). For quicksort, it causes the partition to be very unbalanced because every number will be less than or equal to it (if we choose the first number as our pivot number). This will also maximize the recursive depth to a size of nearly $N-1$. Furthermore, the final subarrays in which insertion sort runs will also be reverse sorted and so, it will have a maximum runtime of $10^2$ (we arbitrarily chose 10 as the breaking point for insertion sort to run). Since both of these sorting algorithms are $N^2$ in the worst case, our algorithm is also $N^2$ as seen in the graph. It has a similar shape to $N^2$.
+
+\includegraphics[width=0.8\textwidth]{finalSortReverseOrderedLists}
+
+Since our sorting algorithm is still predominantly quicksort and still mostly uses quicksort to sort, the best case will still depend on quicksort’s best case. Insertion sort is only used for very small lists, its time complexity is negligible. Its best case is when the pivot number is exactly in the middle such that it partitions the numbers evenly. An example is when the array is randomly ordered because a random pivot will be approximately in the middle. This also minimizes the recursive depth (and thus the memory usage) to $\log_2 N$ (height of the binary tree). Quicksort will have a best case time complexity of $O(N\log N + c)$ or $O(N\log N)$ where $c$ is some constant from insertion sort’s time complexity. As seen in the graph, the running times increase somewhat linearly with a small curve at the beginning, similar to $O(N\log N)$.
+
+\includegraphics[width=0.8\textwidth]{finalSortRandomLists}
+
+
+
+
+
 
 \end{document}
