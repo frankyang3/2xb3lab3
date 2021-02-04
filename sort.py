@@ -98,3 +98,52 @@ def quad_pivot_quicksort_copy(L):
                 else:
                         right3.append(num)
         return quad_pivot_quicksort_copy(left1) + [pivot1] + quad_pivot_quicksort_copy(left2) + [pivot2] + quad_pivot_quicksort_copy(right1) + [pivot3] + quad_pivot_quicksort_copy(right2) + [pivot4]+ quad_pivot_quicksort_copy(right3)
+    
+    
+    
+    
+# Small lists functions
+def selection_sort(arr):
+    for i in range(len(arr)): 
+        min_index = i 
+        for j in range(i+1, len(arr)): 
+            if arr[min_index] > arr[j]: 
+                min_index = j 
+                         
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+
+def insertion_sort(arr, l, h):
+    for i in range(l + 1, h + 1):
+        current = arr[i]
+        j = i
+        while j > l and arr[j - 1] > current:
+            arr[j] = arr[j - 1]
+            j -= 1
+
+        arr[j] = current
+        
+
+def final_sort(L, l, h):
+    while l < h:
+        if h < 10 + l:
+            insertion_sort(L, l, h)
+            break
+        else:
+            pivot = partition(L, l, h)
+            final_sort(L, l, pivot - 1)
+            l = pivot + 1
+            final_sort(L, pivot + 1, h)
+            h = pivot - 1
+
+                
+def partition(L, l, h):
+    pivot = L[h]
+    index = l
+    for i in range(l, h):
+        if L[i] <= pivot:
+            L[i], L[index] = L[index], L[i]
+            index += 1
+            
+    L[h], L[index] = L[index], L[h]
+    return index
