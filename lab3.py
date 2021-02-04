@@ -43,7 +43,6 @@ def create_near_sorted_list(n, factor):
 ###### TESTING ######
 def avg(L):
     return sum(L) / len(L)
-
 def tests(trials):
     std, dual, tri, quad, inplace = [], [], [], [], []
     
@@ -79,12 +78,8 @@ def tests(trials):
         quicksort_inplace(arr, 0, len(arr)-1)
         stop = timeit.default_timer()
         inplace.append(stop - start)
-<<<<<<< HEAD
 
-=======
->>>>>>> a2febef59a579b261f7dbcdc9e367c7428bbcb4e
-
-    averages = {std: avg(std), dual: avg(dual), tri: avg(tri), quad: avg(quad), inplace: avg(inplace)}
+    #averages = {"std": avg(std), "dual": avg(dual), "tri": avg(tri), "quad": avg(quad), "inplace": avg(inplace)}
     print("AVERAGES: std, dual, tri, quad, inplace")
     print(avg(std), avg(dual), avg(tri), avg(quad), avg(inplace))
 
@@ -93,3 +88,5 @@ def tests(trials):
 
     print("MAXIMUM: std, dual, tri, quad, inplace")
     print(max(std), max(dual), max(tri), max(quad), max(inplace))
+
+tests(100)
