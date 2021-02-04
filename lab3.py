@@ -249,3 +249,6 @@ def small_lists_tests(trials):
     averages = {"std": avg(std), "insertion": avg(insertion), "selection": avg(selection), "final": avg(final)}
     print("AVERAGES:")
     print(averages)
+
+tests(10000)
+small_lists_tests(100)
