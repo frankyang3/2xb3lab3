@@ -33,9 +33,7 @@ This paper analyzes different time complexities of quicksort. Specifically it lo
 \end{abstract}
 
 \section*{Method}
- The inplace quicksort was a standard implementation, while for the multi-pivot quicksort we chose to select the first \verb|x| elements as pivots, where \verb|x| is the amount of pivots in the sort. The pivots were then sorted based using python's standard sort. The rest of the implementation is similar to the given function \verb|my_quicksort|, a non-inplace version. We conducted tests for these using a separate function, written as \verb|tests|. This function essentially loops the call of quicksort using the given \verb|create_random_lists| to generate data sets. Each iteration was timed using \verb|timeit|, and stored into an array. At the end, the maximum, average, and minimum times were calculated and displayed. For the worst case experiment, we first calculated the time complexity for quicksort, as well as the worst case. We then wrote our own bubble sort, insertion sort and selection sort. Using the function \verb|create_near_sorted_list|, we were able to identify which sort performs the best based on how sorted the list given is. This data was collected using \verb|pandas| and published on csv files in the github. Lastly we tested our small list
-
-
+ The inplace quicksort was a standard implementation, while for the multi-pivot quicksort we chose to select the first \verb|x| elements as pivots, where \verb|x| is the amount of pivots in the sort. The pivots were then sorted based using python's standard sort. The rest of the implementation is similar to the given function \verb|my_quicksort|, a non-inplace version. We conducted tests for these using a separate function, written as \verb|tests|. This function essentially loops the call of quicksort using the given \verb|create_random_lists| to generate data sets. Each iteration was timed using \verb|timeit|, and stored into an array. At the end, the maximum, average, and minimum times were calculated and displayed. For the worst case experiment, we first calculated the time complexity for quicksort, as well as the worst case. We then wrote our own bubble sort, insertion sort and selection sort. Using the function \verb|create_near_sorted_list|, we were able to identify which sort performs the best based on how sorted the list given is. This data was collected using \verb|pandas| and published on csv files in the github. Lastly we tested our small list runtimes through a function \verb|small_lists_tests|. This was built similarly to the \verb|tests| function above, but use a list size of 10. Similarly, we iterate the function 1000 times, and obtain the average runtimes for insertion sort, bubble sort, and selection sort. This then printed.
 
 \section*{Quicksort Inplace}
 Using the \verb|timeit| package and \verb|create_random_lists|, we wrote a testing function called \verb|tests| This function essentially ran the inplace quicksort and the traditiona \verb|my_quicksort| implementation 100 times using a different random list. Then it would take the average, the maximum, and the minimum runtimes. It was found that the average runtimes for both were identical, over 10000 iterations, it was about 0.00013s to sort each.
@@ -120,9 +118,10 @@ Since our sorting algorithm is still predominantly quicksort and still mostly us
 
 \includegraphics[width=0.8\textwidth]{finalSortRandomLists}
 
+\section*{Sources of Error}
+Our experiment most likely does not contain any sources of error. The one source of error may be a bug in computer running, causing the runtime of an iteration to be higher than it actually is, or a statistical anomaly where the generated lists are always unfavourable to a certain implementation. As both of these are statistically impossible due to the sample size of three computers and more than 40,000 iterations, we believe the conclusions drawn from the experiment to be accurate.
 
-
-
-
+\section*{Conclusion}
+In conclusion, this experiment tested the runtimes of different sorting algorithms. Specifically, it tested the runtime of the inplace implmentation of quicksort vs a standard one, Quicksort with multiple pivots, and quicksort vs. bubble sort, insertion sort, and selection sort, testing both worst case and small lists of size 10. It was found that inplace and standard implementations performed similarly on average, quicksort with more pivots generally performs better than with less pivots, and quicksort is outperformed by bubble sort, insertion sort, and selection sort when the list is close to sorted. Lastly, it was found that for small lists, quicksort is similarly outperformed, but drastically outperforms the other sorting algorithms in larger lists.
 
 \end{document}
