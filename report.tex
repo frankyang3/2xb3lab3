@@ -117,6 +117,9 @@ The worst case of this algorithm is a reverse sorted list. It is the worst case 
 
 \includegraphics[width=0.8\textwidth]{finalSortReverseOrderedLists}
 
+\includegraphics[width=0.8\textwidth]{worstCase}\\
+The worst case recursion depth can be visualized (it only shows a small section of the recursion tree) above where it continues for a height of slightly below $N$ when the subarrays become a size of less than 10.
+
 Since our sorting algorithm is still predominantly quicksort and still mostly uses quicksort to sort, the best case will still depend on quicksort’s best case. Insertion sort is only used for very small lists, its time complexity is negligible. Its best case is when the pivot number is exactly in the middle such that it partitions the numbers evenly. An example is when the array is randomly ordered because a random pivot will be approximately in the middle. This also minimizes the recursive depth (and thus the memory usage) to $\log_2 N$ (height of the binary tree). Quicksort will have a best case time complexity of $O(N\log N + c)$ or $O(N\log N)$ where $c$ is some constant from insertion sort’s time complexity. As seen in the graph, the running times increase somewhat linearly with a small curve at the beginning, similar to $O(N\log N)$.
 
 \includegraphics[width=0.8\textwidth]{finalSortRandomLists}
