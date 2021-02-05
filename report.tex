@@ -121,7 +121,11 @@ Since our sorting algorithm is still predominantly quicksort and still mostly us
 
 \includegraphics[width=0.8\textwidth]{finalSortRandomLists}
 
-In the average case, the finalsort will be the same as quicksort. As explained before, finalsort is still predominantly quicksort and thus the average case will depend on it. The average case is when the subarrays are partitioned approximately equally. This is because it is very likely for a randomly chosen pivot to be in the middle 50\% of the numbers. Thus, the average case for finalsort is $O(N\log N)$.
+In the average case, the finalsort will be the same as quicksort. As explained before, finalsort is still predominantly quicksort and thus the average case will depend on it. The average case is when the subarrays are partitioned approximately equally (as seen in the graph below). This is because it is very likely for a randomly chosen pivot to be in the middle 50\% of the numbers. Thus, the average case for finalsort is $O(N\log N)$.
+
+\includegraphics[width=0.8\textwidth]{bestCase}\\
+The values in this graph are approximate for the average case and exact for the best case. The height of the recursion tree is slightly less than the shown $\log(N)$, but since the finalsort does mostly quicksort, it is still approximately $\log(N)$. This graph also visually shows the reason why the best case's (and average case's) recursion depth (explained before) is approximately $\log(N)$ and why the total time complexity is approximately $N\log(N)$. Each level does $N$ amount of work with approximately $\log(N)$ levels in the tree.
+
 
 \section*{Sources of Error}
 Our experiment most likely does not contain any sources of error. The one source of error may be a bug in computer running, causing the runtime of an iteration to be higher than it actually is, or a statistical anomaly where the generated lists are always unfavourable to a certain implementation. As both of these are statistically impossible due to the sample size of three computers and more than 40,000 iterations, we believe the conclusions drawn from the experiment to be accurate.
