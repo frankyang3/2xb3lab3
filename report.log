@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  4 FEB 2021 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  5 FEB 2021 12:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -214,94 +214,111 @@ e
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 40--43
+<Lab3Method.png, id=12, 832.10875pt x 395.4775pt>
+File: Lab3Method.png Graphic file (type png)
+<use Lab3Method.png>
+Package pdftex.def Info: Lab3Method.png  used on input line 39.
+(pdftex.def)             Requested size: 276.00105pt x 131.17177pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--41
+[] 
+ []
+
+
+Overfull \hbox (37.8885pt too wide) in paragraph at lines 37--41
+\OT1/cmr/m/n/10 This func-tion es-sen-tially loops the call of quick-sort us-in
+g the given [][]\OT1/cmtt/m/n/10 create_random_lists
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 \OT1/cmr/m/n/10 tions, it was about 0.00013s to sort each. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--43
+Underfull \hbox (badness 10000) in paragraph at lines 43--46
 
  []
 
-[2]
+[2 <./Lab3Method.png>]
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 63.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 65.
 
 
-LaTeX Warning: Command \textendash invalid in math mode on input line 63.
+LaTeX Warning: Command \textendash invalid in math mode on input line 65.
 
-<average_vs_worst_case_performance.png, id=17, 364.197pt x 218.781pt>
+<average_vs_worst_case_performance.png, id=20, 364.197pt x 218.781pt>
 File: average_vs_worst_case_performance.png Graphic file (type png)
 <use average_vs_worst_case_performance.png>
 Package pdftex.def Info: average_vs_worst_case_performance.png  used on input l
-ine 68.
+ine 70.
 (pdftex.def)             Requested size: 276.00105pt x 165.80124pt.
 [3]
-<bubblesort_vs_quicksort_vs_factor.png, id=25, 364.197pt x 218.781pt>
+<bubblesort_vs_quicksort_vs_factor.png, id=27, 364.197pt x 218.781pt>
 File: bubblesort_vs_quicksort_vs_factor.png Graphic file (type png)
 <use bubblesort_vs_quicksort_vs_factor.png>
 Package pdftex.def Info: bubblesort_vs_quicksort_vs_factor.png  used on input l
-ine 80.
+ine 82.
 (pdftex.def)             Requested size: 276.00105pt x 165.80124pt.
-<selectionSort_vs_quicksort_vs_factor.png, id=26, 364.197pt x 218.781pt>
+<selectionSort_vs_quicksort_vs_factor.png, id=28, 364.197pt x 218.781pt>
 File: selectionSort_vs_quicksort_vs_factor.png Graphic file (type png)
 <use selectionSort_vs_quicksort_vs_factor.png>
 Package pdftex.def Info: selectionSort_vs_quicksort_vs_factor.png  used on inpu
-t line 89.
+t line 91.
 (pdftex.def)             Requested size: 276.00105pt x 165.80124pt.
  [4 <./average_vs_worst_case_performance.png> <./bubblesort_vs_quicksort_vs_fac
 tor.png>]
-<insertionSort_vs_quicksort_vs_factor.png, id=32, 365.292pt x 213.744pt>
+<insertionSort_vs_quicksort_vs_factor.png, id=34, 365.292pt x 213.744pt>
 File: insertionSort_vs_quicksort_vs_factor.png Graphic file (type png)
 <use insertionSort_vs_quicksort_vs_factor.png>
 Package pdftex.def Info: insertionSort_vs_quicksort_vs_factor.png  used on inpu
-t line 99.
+t line 101.
 (pdftex.def)             Requested size: 276.00105pt x 161.5013pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 [][]\OT1/cmtt/m/n/10 {'std': 9.19201014767168e-06, 'insertion': 5.8214199088979
 51e-06,
  []
 
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 104--105
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 106--107
 [] \OT1/cmtt/m/n/10 'selection': 9.893930109683424e-06, 'final': 6.013410202285
 741e-06}
  []
 
 [5 <./selectionSort_vs_quicksort_vs_factor.png> <./insertionSort_vs_quicksort_v
 s_factor.png>]
-<elementarySortsComparisons.png, id=38, 699.61375pt x 509.905pt>
+<elementarySortsComparisons.png, id=40, 699.61375pt x 509.905pt>
 File: elementarySortsComparisons.png Graphic file (type png)
 <use elementarySortsComparisons.png>
-Package pdftex.def Info: elementarySortsComparisons.png  used on input line 108
+Package pdftex.def Info: elementarySortsComparisons.png  used on input line 110
 .
 (pdftex.def)             Requested size: 276.00105pt x 201.16518pt.
  [6 <./elementarySortsComparisons.png>]
-<quicksortFinalSort.png, id=45, 599.23875pt x 453.695pt>
+<quicksortFinalSort.png, id=47, 599.23875pt x 453.695pt>
 File: quicksortFinalSort.png Graphic file (type png)
 <use quicksortFinalSort.png>
-Package pdftex.def Info: quicksortFinalSort.png  used on input line 112.
+Package pdftex.def Info: quicksortFinalSort.png  used on input line 114.
 (pdftex.def)             Requested size: 276.00105pt x 208.9653pt.
-<finalSortReverseOrderedLists.png, id=46, 608.2725pt x 455.7025pt>
+<finalSortReverseOrderedLists.png, id=48, 608.2725pt x 455.7025pt>
 File: finalSortReverseOrderedLists.png Graphic file (type png)
 <use finalSortReverseOrderedLists.png>
 Package pdftex.def Info: finalSortReverseOrderedLists.png  used on input line 1
-16.
+18.
 (pdftex.def)             Requested size: 276.00105pt x 206.77477pt.
  [7 <./quicksortFinalSort.png>]
-<finalSortRandomLists.png, id=52, 663.47874pt x 454.69875pt>
+<finalSortRandomLists.png, id=54, 663.47874pt x 454.69875pt>
 File: finalSortRandomLists.png Graphic file (type png)
 <use finalSortRandomLists.png>
-Package pdftex.def Info: finalSortRandomLists.png  used on input line 120.
+Package pdftex.def Info: finalSortRandomLists.png  used on input line 122.
 (pdftex.def)             Requested size: 276.00105pt x 189.14743pt.
  [8 <./finalSortReverseOrderedLists.png> <./finalSortRandomLists.png>]
 [9] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3427 strings out of 492616
- 48251 string characters out of 6129482
+ 3432 strings out of 492616
+ 48340 string characters out of 6129482
  116736 words of memory out of 5000000
- 7314 multiletter control sequences out of 15000+600000
+ 7318 multiletter control sequences out of 15000+600000
  9352 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,32p,1577b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -318,10 +335,10 @@ b></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
 /usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></
 usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></u
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on report.pdf (9 pages, 678616 bytes).
+Output written on report.pdf (9 pages, 1049262 bytes).
 PDF statistics:
- 103 PDF objects out of 1000 (max. 8388607)
+ 105 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
